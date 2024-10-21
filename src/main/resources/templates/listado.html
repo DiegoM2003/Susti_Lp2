@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Thymeleaf</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #343a40;
+        }
+        table {
+            margin-bottom: 40px;
+            width: 100%;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        td {
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Listado de Roles y Personas</h1>
+
+    <div class="container">
+        <h2>Roles</h2>
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>ID Rol</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <th:block th:each="p: ${ltsRole}">
+                    <tr>
+                        <td th:text="${p.idrole}"></td>
+                        <td th:text="${p.name}"></td>
+                        <td th:text="${p.description}"></td>
+                    </tr>
+                </th:block>
+            </tbody>
+        </table>
+
+        <h2>Personas</h2>
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>ID Persona</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                </tr>
+            </thead>
+            <tbody>
+                <th:block th:each="p: ${ltsPerson}">
+                    <tr>
+                        <td th:text="${p.idperson}"></td>
+                        <td th:text="${p.fistname}"></td>
+                        <td th:text="${p.lastname}"></td>
+                    </tr>
+                </th:block>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
